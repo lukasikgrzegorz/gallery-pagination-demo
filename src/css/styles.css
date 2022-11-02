@@ -65,7 +65,7 @@ ul{
     outline: 2px solid #A2C0FF;
 }
 
-.search-form button{
+.submit-btn{
     position: absolute;
     right: 0;
     top:0;
@@ -76,19 +76,34 @@ ul{
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     cursor: pointer;
+    color: #454648;
+}
+
+.submit-btn:hover {
+    color: #3b5998;
+}
+
+.loop-btn {
+    border: none;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    background-color: transparent;
+    color: #454648;
+}
+
+.loop-btn:active,
+.loop-btn:hover {
+    color: #ffffff;
 }
 
 .icon-wrapper{
-    color:#454648;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.icon-wrapper:hover,
-.icon-wrapper:focus{
-    color: #3b5998;
-}
+
 
 .icon{
     width: 15px;

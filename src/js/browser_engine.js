@@ -3,14 +3,17 @@ import Notiflix from "notiflix";
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
+
 const APIKEY = "31019872-5203125bb9147bf7b31b034ba"
 const gallery = document.querySelector(".gallery");
 const form = document.querySelector("#search-form");
 const btnMore = document.querySelector(".load-more");
+const btnLoop = document.querySelector(".loop-btn");
 
 let actualPage = 1;
 let currentSearchName = "";
 let lastPage = 1;
+let scrollToogle = false;
 
 let lightbox = new SimpleLightbox('.gallery a', {
     captionDelay: 250,
@@ -27,7 +30,7 @@ const fetchPhotos = async (name,page) => {
                 Notiflix.Notify.success(`Hooray! We found ${photos.totalHits} images.`);
                 currentSearchName = name;
                 lastPage = Math.ceil(photos.totalHits / 40);
-                if (lastPage > 1) { btnMore.classList.add("is-visible") };
+                if (lastPage > 1 && scrollToogle===false) { btnMore.classList.add("is-visible") };
             }
             renderPhotos(photos);
             lightbox.refresh();
@@ -81,3 +84,25 @@ const scrollPage = () => {
         behavior: "smooth",
     })
 }
+
+    
+const infinityScroll= () => {
+    if(window.scrollY + window.innerHeight >= 
+    document.documentElement.scrollHeight){
+ 
+    if (actualPage < lastPage) {
+          actualPage++;
+    fetchPhotos(currentSearchName, actualPage);     
+    if (actualPage === lastPage) {
+        Notiflix.Notify.info("We're sorry, but you've reached the end of search results."); 
+        btnMore.classList.remove("is-visible");
+    }  
+    } 
+    }
+}
+
+btnLoop.addEventListener("click", () => {
+    scrollToogle = true;
+    window.addEventListener('scroll', infinityScroll);
+})
+
