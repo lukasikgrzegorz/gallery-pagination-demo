@@ -31,7 +31,6 @@ const fetchPhotos = async (name,page) => {
             }
             renderPhotos(photos);
             lightbox.refresh();
-
             if (actualPage > 1) {scrollPage()};
         }   
     } catch(error) {
@@ -55,7 +54,6 @@ const renderPhotos =(photos) => {
                 </div>`
     })
     .join("")
-    
     gallery.innerHTML = gallery.innerHTML+markup;
 }
 
@@ -69,19 +67,15 @@ form.addEventListener("submit", (e) => {
 btnMore.addEventListener("click", () => {
     actualPage++;
     fetchPhotos(currentSearchName, actualPage);     
-
     if (actualPage === lastPage) {
         Notiflix.Notify.info("We're sorry, but you've reached the end of search results."); 
         btnMore.classList.remove("is-visible");
-    }
-    
+    }  
 })
 
 const scrollPage = () => {
-    
     const photoInfo = document.querySelector(".gallery").firstElementChild.getBoundingClientRect();
     const { height: cardHeight } = photoInfo;
-
     window.scrollBy({
         top: cardHeight * 2,
         behavior: "smooth",
