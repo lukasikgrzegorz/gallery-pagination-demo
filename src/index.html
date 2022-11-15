@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <title>Homework 11</title>
+  <title>Gallery Pagination Demo</title>
 </head>
 
 <body>
@@ -23,25 +23,11 @@
         </div>
       </button>
     </form>
-    <button type="button" class="loop-btn">
-      <div class="icon-wrapper">
-        <svg class="icon">
-          <use href="./img/icons.svg#icon-refresh"></use>
-        </svg>
-      </div>
-    </button>
   </div>
 
+  <div class="gallery"></div>
 
-
-  <div class="gallery">
-
-  </div>
-
-  <div class="button-holder">
-    <button type="button" class="load-more">Load more</button>
-  </div>
-
+  <div id="pagination-buttons" class="tui-pagination"></div>;
 
   <script src="./js/browser_engine.js" type="module"></script>
 </body>

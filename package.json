@@ -2,10 +2,10 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://lukasikgrzegorz.github.io/goit-js-hw-11/",
+  "homepage": "https://lukasikgrzegorz.github.io/gallery-pagination-demo/",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-11/"
+    "build": "parcel build src/*.html --public-url /gallery-pagination-demo/"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,8 @@
     "lodash.throttle": "^4.1.1",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.5",
-    "simplelightbox": "^2.10.4"
+    "simplelightbox": "^2.10.4",
+    "tui-pagination": "^3.4.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
